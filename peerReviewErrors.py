@@ -1,8 +1,8 @@
 # This is a header for the application
 # You should read this header and insert your name and your date below as part of the peer review
 # This is a typical part of any program
-# Author: <author>
-# Creation Date: <date>
+# Author: Andrew McDonald
+# Creation Date: 07/31/2021
 # Below is a simple program with 10 issues (some are syntax errors and some are logic errors.  You need to identify the issues and correct them.
 
 import random
@@ -52,3 +52,4 @@ while playAgain = 'yes' or playAgain = 'y':
 	if playAgain == "no":
 		print("Thanks for planing")
 
+		      
