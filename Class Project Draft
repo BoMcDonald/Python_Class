@@ -1,0 +1,44 @@
+# File: Andrew McDonald Class Project Draft Week 8.py
+# Name: Andrew "Bo" McDonald
+# Date: 08/01/2021
+# Course: CIS245-T302-T801
+# Assignment Number: Class Project Task 2
+# Description:  For your class project we will be creating an application that interacts with a webservice in order to obtain data.  
+		Your program will use all of the information you’ve learned in the class in order to create a useful application.
+		Your program must prompt the user for their city or zip code and request weather forecast data from openweathermap.org.  
+		Your program must display the weather information in an READABLE format to the user.
+		
+# Start
+
+# import requests 
+import requests 
+
+# Display welcome message
+print("Welcome to the Weather Reporting Service brought to you by Python. Please press Enter to begin.")
+
+# Define all webservice data
+def webservice_data():
+	# City data
+	cityUrl = "https://api.openweathermap.org/data/2.5/weather?q={city name},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(city)
+	appid = "d5412cffb533357d6ce85a9a34f7003e"
+	city = input("Please enter the city name: ")
+	request = request.get(cityUrl)
+	data = request.json()
+	return data
+	
+	# Ask if the user would like to play again 
+	playAgain = 
+	
+	# Zip Code data
+	zipCodeUrl = "https://api.openweathermap.org/data/2.5/weather?zip={zip code},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(zipCode)
+	appid = "d5412cffb533357d6ce85a9a34f7003e"
+	requests = request.get(zipCodeUrl)
+	data = requests.json()
+	return data
+	
+# Define Data being displayed
+def data
+	temp = data["main"]["temp"]
+	maxTemp = data["main"]["temp_max"]
+	minTemp = data["main"]["temp_min"]
+	
