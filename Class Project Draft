@@ -20,18 +20,18 @@ print("Welcome to the Weather Reporting Service brought to you by Python. Please
 def city():
 	# City data
 	city = input("Please enter the city name: ")
-	cityUrl = "https://api.openweathermap.org/data/2.5/weather?q={city name},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(city)
+	cityUrl = "https://api.openweathermap.org/data/2.5/weather?q={city},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(city)
 	appid = "d5412cffb533357d6ce85a9a34f7003e"
-	request = request.get(cityUrl)
+	request = requests.get(cityUrl)
 	data = request.json()
 	return data
 
 # Define zipCode():
 def zipCode():
 	zipCode = int(input("Please enter your Zip Code: "))
-	zipCodeUrl = "https://api.openweathermap.org/data/2.5/weather?zip={zip code},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(zipCode)
+	zipCodeUrl = "https://api.openweathermap.org/data/2.5/weather?zip={zipCode},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(zipCode)
 	appid = "d5412cffb533357d6ce85a9a34f7003e"
-	request = request.get(zipCodeUrl)
+	request = requests.get(zipCodeUrl)
 	data = request.json()
 	return data
 	
