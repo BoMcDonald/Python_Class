@@ -41,4 +41,21 @@ def data
 	temp = data["main"]["temp"]
 	maxTemp = data["main"]["temp_max"]
 	minTemp = data["main"]["temp_min"]
+	windSpeed = data["main"]["speed"]
+	pressure = data["main"]["pressure"]
+	humidity = data["main"]["humidity"]
+	description = data["weather"][0]["description"]
 	
+	# Display data listed above in readable format
+	print("Current temperature: {} degrees Fahrenheit".format(temp))
+	print("Maximum temperature: {} degrees Fahrenheit".format(maxTemp))
+	print("Minimum temperature: {} degrees Fahrenheit".format(minTemp))
+	print("Wind speed: {} meters/second".format(windSpeed))
+	print("Pressure: {} hPa".format(pressure))
+	print("Humidity: {} %".format(humidity))
+	print("Description: {}".format(description))
+	
+	
+# Define main function with while loop and implementing try blocks for establishing connection 
+def main():
+
