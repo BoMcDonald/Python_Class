@@ -19,18 +19,18 @@ print("Welcome to the Weather Reporting Service brought to you by Python. Please
 # Define city():
 def city():
 	# City data
+	city = input("Please enter the city name: ")
 	cityUrl = "https://api.openweathermap.org/data/2.5/weather?q={city name},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(city)
 	appid = "d5412cffb533357d6ce85a9a34f7003e"
-	city = input("Please enter the city name: ")
 	request = request.get(cityUrl)
 	data = request.json()
 	return data
 
 # Define zipCode():
 def zipCode():
+	zipCode = int(input("Please enter your Zip Code: "))
 	zipCodeUrl = "https://api.openweathermap.org/data/2.5/weather?zip={zip code},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(zipCode)
 	appid = "d5412cffb533357d6ce85a9a34f7003e"
-	zipCode = int(input("Please enter your Zip Code: "))
 	request = request.get(zipCodeUrl)
 	data = request.json()
 	return data
@@ -105,5 +105,5 @@ while searchAgain == "yes" or searchAgain == "y":
 	
 if searchAgain == "no" or searchAgain == "n"
 	print("Thank you for visiting the Weather Reporting Service brought to you by Python.")
-	break
+	
 
