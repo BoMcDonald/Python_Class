@@ -25,9 +25,6 @@ def city():
 	request = request.get(cityUrl)
 	data = request.json()
 	return data
-	
-	# Ask if the user would like to play again 
-	playAgain = 
 
 # Define zipCode():
 def zipCode():
@@ -62,8 +59,51 @@ def display(data):
 def main():
 	while True:
 		userSelection = int(input("Which way would you like to search to find your weather report? \n1. Zip Code \n2. City Name \n3. Quit\n"))
-		if userSelection == 1 
+		if userSelection == 1:
 			# Ask for zip code
 			try:
+				print("Valid selection; Connection established.")
 				zipCode()
 				
+			# Include exception for invalid input
+			except Exception:
+				print("Your input is invalid. Please try again.")
+				zipCode()
+				
+		elif userSelection == 2:
+			# Ask for city name
+			try:
+				print("Valid selection; Connection established.")
+				city()
+				
+			# Include exception for invalid input	
+			except Exception:
+				print("Your input is invalid. Please try again.")
+				city()
+				
+		elif userSelection == 3:
+			print("Thank you for visiting the Weather Reporting Service brought to you by Python.")
+			# break because userSelection 3 means quit
+			break
+			
+		else: 
+			# Invalid input
+			print("Your input is invalid. Please try again.")
+			
+main()
+
+
+# define searchAgain for continued searches
+searchAgain = "yes" or "y"
+
+# while loop for searchAgain
+while searchAgain == "yes" or searchAgain == "y":
+	main()
+	
+	print("Would you like to make another search?")
+	searchAgain = input()
+	
+if searchAgain == "no" or searchAgain == "n"
+	print("Thank you for visiting the Weather Reporting Service brought to you by Python.")
+	break
+
