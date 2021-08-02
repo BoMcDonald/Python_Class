@@ -16,8 +16,8 @@ import requests
 # Display welcome message
 print("Welcome to the Weather Reporting Service brought to you by Python. Please press Enter to begin.")
 
-# Define all webservice data
-def webservice_data():
+# Define city():
+def city():
 	# City data
 	cityUrl = "https://api.openweathermap.org/data/2.5/weather?q={city name},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(city)
 	appid = "d5412cffb533357d6ce85a9a34f7003e"
@@ -28,16 +28,18 @@ def webservice_data():
 	
 	# Ask if the user would like to play again 
 	playAgain = 
-	
-	# Zip Code data
+
+# Define zipCode():
+def zipCode():
 	zipCodeUrl = "https://api.openweathermap.org/data/2.5/weather?zip={zip code},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(zipCode)
 	appid = "d5412cffb533357d6ce85a9a34f7003e"
-	requests = request.get(zipCodeUrl)
-	data = requests.json()
+	zipCode = int(input("Please enter your Zip Code: "))
+	request = request.get(zipCodeUrl)
+	data = request.json()
 	return data
 	
 # Define Data being displayed
-def data
+def display(data):
 	temp = data["main"]["temp"]
 	maxTemp = data["main"]["temp_max"]
 	minTemp = data["main"]["temp_min"]
@@ -58,4 +60,10 @@ def data
 	
 # Define main function with while loop and implementing try blocks for establishing connection 
 def main():
-
+	while True:
+		userSelection = int(input("Which way would you like to search to find your weather report? \n1. Zip Code \n2. City Name \n3. Quit\n"))
+		if userSelection == 1 
+			# Ask for zip code
+			try:
+				zipCode()
+				
