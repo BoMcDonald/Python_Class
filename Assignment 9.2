@@ -1,1 +1,49 @@
+# Import OS
+import os
 
+# Define main()
+def main():
+  # Set directory 
+  directory = input("Enter the preferred directory to save your file in: ")
+  
+  # Set fileName
+  fileName = input("Enter the file name: ")
+  
+  # Set the person's name
+  name = input("Enter your name: ")
+  
+  # Set their home address
+  address = input("Please enter your home address: ")
+  
+  # Set their phone number
+  phoneNumber = input("Please enter your phone number: ")
+  
+  # Making sure the directory exists
+  if os.path.isdir(directory):
+    # Create and open the file with written capability
+    writeFile = open(os.path.join(directory, fileName), 'w')
+    
+    # Make the program write the person's information onto a file
+    writeFile.write("name+", "+address+", "+phoneNumber+"\n")
+    
+    # Close the file
+    writeFile.close()
+    
+    print("File contents: ")
+    
+    # Have the program read the file for storage proof
+    readFile = open(os.path.join(directory, fileName), 'r')
+    
+    # for statement
+    for line in readFile:
+      print(line)
+      
+    # Close the file for reading
+    readFile.close()
+    
+   # Create else statement
+   else: 
+    print("The directory requested does not exist.")
+    
+ # Call main function
+ main()
