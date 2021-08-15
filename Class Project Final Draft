@@ -1,0 +1,109 @@
+# File: Andrew McDonald Class Project Final Draft.py
+# Name: Andrew "Bo" McDonald
+# Date: 08/14/2021
+# Course: CIS245-T302-T801
+# Assignment Number: Final Project 
+# Description:  For your class project we will be creating an application that interacts with a webservice in order to obtain data.  
+#		            Your program will use all of the information you’ve learned in the class in order to create a useful application.
+#		            Your program must prompt the user for their city or zip code and request weather forecast data from openweathermap.org.  
+#		            Your program must display the weather information in an READABLE format to the user.
+		
+# Start
+
+# import requests and json
+import requests
+import json
+
+# Display welcome message
+welcomeMessage = input("Welcome to the Weather Reporting Service brought to you by Python. Please press Enter to begin.")
+
+# Define city():
+def city():
+	# City data
+	city = input("Please enter the city name: ")
+	cityUrl = "https://api.openweathermap.org/data/2.5/weather?q={},us&appid=d5412cffb533357d6ce85a9a34f7003e&units=imperial".format(city)
+	apiKey = "d5412cffb533357d6ce85a9a34f7003e"
+	request = requests.get(cityUrl)
+	data = request.json()
+	return display_data(data)
+
+def searchAgain():
+    searchAgain = input("Would you like to make another search? Yes or no: ")
+    if searchAgain == "Yes": 
+        main()
+    
+    if searchAgain == "No":
+        print("Thank you for visiting the Weather Reporting Service brought to you by Python")
+
+
+# Define zipCode():
+def zipCode():
+	zipCode = int(input("Please enter your Zip Code: "))
+	zipCodeUrl = "https://api.openweathermap.org/data/2.5/weather?zip={},us&units=imperial&appid=d5412cffb533357d6ce85a9a34f7003e".format(zipCode)
+	apiKey = "d5412cffb533357d6ce85a9a34f7003e"
+	request = requests.get(zipCodeUrl)
+	data = request.json()
+	return display_data(data)
+	
+# Define Data being displayed
+def display_data(data):
+	temp = data["main"]["temp"]
+	maxTemp = data["main"]["temp_max"]
+	minTemp = data["main"]["temp_min"]
+	pressure = data["main"]["pressure"]
+	humidity = data["main"]["humidity"]
+	description = data["weather"][0]["description"]
+	
+	# Display data listed above in readable format
+	print("Current temperature: {} degrees Fahrenheit".format(temp))
+	print("Maximum temperature: {} degrees Fahrenheit".format(maxTemp))
+	print("Minimum temperature: {} degrees Fahrenheit".format(minTemp))
+	print("Pressure: {} hPa".format(pressure))
+	print("Humidity: {} %".format(humidity))
+	print("Description: {}".format(description))
+
+def searchAgain():
+    searchAgain = input("Would you like to make another search? Yes or no: ")
+    if searchAgain == "Yes": 
+        main()
+    
+    if searchAgain == "No":
+        print("Thank you for visiting the Weather Reporting Service brought to you by Python")
+        exit()
+        
+# Define main function with while loop and implementing try blocks for establishing connection 
+def main():
+	while True:
+		userSelection = int(input("Which way would you like to search to find your weather report? \n1. Zip Code \n2. City Name \n3. Quit\n"))
+		if userSelection == 1:
+			# Ask for zip code
+			try:
+				print("Valid selection; Connection established.")
+				zipCode()
+				
+			# Include exception for invalid input
+			except Exception:
+				print("Your input is invalid. Please try again.")
+				zipCode()
+				
+		elif userSelection == 2:
+			# Ask for city name
+			try:
+				print("Valid selection; Connection established.")
+				city()
+				
+			# Include exception for invalid input	
+			except Exception:
+				print("Your input is invalid. Please try again.")
+				city()
+				
+		elif userSelection == 3:
+			print("Thank you for visiting the Weather Reporting Service brought to you by Python.")
+			# break because userSelection 3 means quit
+			break
+			
+		else: 
+			# Invalid input
+			print("Your input is invalid. Please try again.")
+			
+main()
