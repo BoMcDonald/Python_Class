@@ -1,3 +1,17 @@
+# File: Andrew McDonald Class Project Final Draft.py
+# Name: Andrew "Bo" McDonald
+# Date: 08/14/2021
+# Course: CIS245-T302-T801
+# Assignment Number: Assignment 9.1 
+# Description: This week we will create a program that performs file processing activities.  Your program this week will use the OS library in order to validate that a directory 
+#              exists before creating a file in that directory.  Your program will prompt the user for the directory they would like to save the file in as well as the name of the
+#              file.  The program should then prompt the user for their name, address, and phone number.  Your program will write this data to a comma separated line in a file and
+#              store the file in the directory specified by the user. 
+#              Once the data has been written your program should read the file you just wrote to the file system and display the file contents to the user for validation
+#              purposes. 
+
+
+
 # Import OS
 import os
 
@@ -20,30 +34,31 @@ def main():
   
   # Making sure the directory exists
   if os.path.isdir(directory):
-    # Create and open the file with written capability
+	# Create and open the file with written capability
     writeFile = open(os.path.join(directory, fileName), 'w')
     
-    # Make the program write the person's information onto a file
-    writeFile.write("name+", "+address+", "+phoneNumber+"\n")
+	# Make the program write the person's information onto a file
+    writeFile.write(name+", "+address+", "+phoneNumber+"\n")
     
-    # Close the file
+	# Close the file
     writeFile.close()
     
     print("File contents: ")
     
-    # Have the program read the file for storage proof
+	# Have the program read the file for storage proof
     readFile = open(os.path.join(directory, fileName), 'r')
     
-    # for statement
+	# for statement
     for line in readFile:
-      print(line)
+	    print(line)
       
-    # Close the file for reading
+	# Close the file for reading
     readFile.close()
     
-   # Create else statement
-   else: 
+	# Create else statement
+  else: 
     print("The directory requested does not exist.")
     
  # Call main function
- main()
+
+main()
